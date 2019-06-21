@@ -1,0 +1,35 @@
+#create a new line chart.
+line = pygal.Line()
+line.title = 'Website hits in the past 2 years' #set chart title
+line.x_labels = map(str, range(2012, 2014)) #set the x-axis labels.
+line.add('Google', [12, 100, 72, 148]) #set values.
+line.add('TATA', [120, 140, 72, 200]) #set values.
+line.render_to_file('linechart.svg') #set filename.
+
+#create a new stacked line chart.
+line = pygal.StackedLine(fill=False)
+line.title = 'Web hits in the past 2 years' #set chart title
+line.x_labels = map(str, range(2012, 2014)) #set the x-axis labels.
+line.add('Google', [12, 100, 72, 148]) #set values.
+line.add('TATA', [120, 140, 72, 200]) #set values.
+line.render_to_file('Stackedlinechart.svg') #set filename
+
+import pygal
+
+pie_chart = pygal.Pie()
+pie_chart.title = 'Total top tablet sales in 2013 (in %)'
+pie_chart.add('iPad & iPad mini', 49.7)
+pie_chart.add('Surface Pro 2', 36.3)
+pie_chart.add('Surface 2', 24.5)
+pie_chart.add('Nexus 7', 17.5)
+pie_chart.render_to_file('pie_chart.svg')
+
+import pygal
+worldmap_chart = pygal.maps.world.World()
+worldmap_chart.title = 'Highlighting HT-PT MAPS Presence Across the Globe'
+worldmap_chart.add('EMEA', ['gb','za','sa','fr'])
+worldmap_chart.add('AMRS', ['mx','br','ca','us'])
+worldmap_chart.add('APR', ['hk','jp','au','in'])
+
+#Render file.
+worldmap_chart.render_to_file('world_map.svg')
